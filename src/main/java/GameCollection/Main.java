@@ -54,5 +54,19 @@ public class Main {
         } catch (IllegalArgumentException e) {
             System.out.println("Errore boardgame: " + e.getMessage());
         }
+
+        // test collection method 1
+
+        GameCollection collectionTest = new GameCollection();
+        collectionTest.addGame(v2);
+        collectionTest.addGame(v3);
+        collectionTest.addGame(new Videogame(100, "Gioco Test", 2008, 30, "PC", 120.50, Genre.ACTION));
+        try {
+            collectionTest.addGame(new Videogame(100, "Gioco Test", 2008, 30, "PC", 120.50, Genre.ACTION));
+        } catch (IllegalArgumentException e) {
+            System.out.println("Errore: " + e.getMessage());
+        }
+
+        System.out.println(collectionTest);
     }
 }
