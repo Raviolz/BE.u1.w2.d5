@@ -89,11 +89,11 @@ public class Main {
         System.out.println(collectionTest.filterByPriceLessThan(60.23));
 
 
-        // per method 4
+        // test per method 4
 
         System.out.println(collectionTest.filterByPlayers(5));
 
-        // per method 5
+        // test per method 5
 
         System.out.println(collectionTest);
         collectionTest.removeGameById(13);
@@ -104,6 +104,11 @@ public class Main {
             System.out.println("Error: " + e.getMessage());
         }
 
+        //test per method 6
 
+        Boardgame b12 = new Boardgame(20, "Boardgame Test", 2012, 20.40, 4, 1.20, 45);
+
+        collectionTest.updateGameById(20, b12);
+        System.out.println(collectionTest);
     }
 }

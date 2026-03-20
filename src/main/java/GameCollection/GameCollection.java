@@ -63,9 +63,25 @@ public class GameCollection {
 //        games.remove(gameToRemove);
 //    }
 
-    public void removeGameById(int id) {
-        Game gameToRemove = findGameById(id);
+    public void removeGameById(int idInput) {
+        Game gameToRemove = findGameById(idInput);
         games.remove(gameToRemove);
+    }
+
+
+    public void updateGameById(int idGameToUpdate, Game updatedGame) {
+        if (updatedGame == null) {
+            throw new IllegalArgumentException("Updated game cannot be null");
+        }
+
+        Game oldGame = findGameById(idGameToUpdate); // ho il gioco
+
+        if (updatedGame.getId() != idGameToUpdate) {
+            throw new IllegalArgumentException("ID cannot be changed");
+        }
+
+        int index = games.indexOf(oldGame); // indice della lista non id
+        games.set(index, updatedGame); // sostituisco
     }
 
 
