@@ -1,7 +1,9 @@
 package GameCollection;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameCollection {
     // attributi
@@ -84,6 +86,28 @@ public class GameCollection {
         games.set(index, updatedGame); // sostituisco
     }
 
+
+    public String getStats() {
+        long videogamesCount = games.stream()
+                .filter(g -> g instanceof Videogame)
+                .count(); // chiede long
+        long boardgamesCount = games.stream()
+                .filter(g -> g instanceof Boardgame)
+                .count();
+
+        Game mostExpensiveGame = games.stream()
+                .max(Comparator.comparingDouble(Game::getPrice)) // riformattata da intellij
+                .orElse(null);
+
+        double averagePrice = games.stream()
+                .collect(Collectors.averagingDouble(Game::getPrice));
+
+        return "Collection statistics:\n" +
+                "Videogames: " + videogamesCount + "\n" +
+                "Boardgames: " + boardgamesCount + "\n" +
+                "Most expensive game: " + mostExpensiveGame + "\n" +
+                "Average price: " + averagePrice;
+    }
 
     @Override
     public String toString() {

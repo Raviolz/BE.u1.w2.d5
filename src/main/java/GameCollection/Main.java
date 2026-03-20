@@ -110,5 +110,11 @@ public class Main {
 
         collectionTest.updateGameById(20, b12);
         System.out.println(collectionTest);
+
+
+        //test per method 7
+
+        System.out.println(collectionTest.getStats());
+        ;
     }
 }
