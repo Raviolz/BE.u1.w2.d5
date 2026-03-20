@@ -53,6 +53,16 @@ public class GameCollection {
                 .toList();
     }
 
+    public void removeGameById(int id) {
+
+        Game gameToRemove = games.stream()
+                .filter(g -> g.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Game not found"));
+
+        games.remove(gameToRemove);
+    }
+
 
     @Override
     public String toString() {

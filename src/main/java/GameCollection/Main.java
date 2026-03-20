@@ -92,5 +92,18 @@ public class Main {
         // per method 4
 
         System.out.println(collectionTest.filterByPlayers(5));
+
+        // per method 5
+
+        System.out.println(collectionTest);
+        collectionTest.removeGameById(13);
+        System.out.println(collectionTest);
+        try {
+            collectionTest.removeGameById(13);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+
     }
 }
