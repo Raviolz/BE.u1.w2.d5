@@ -12,6 +12,19 @@ public class Videogame extends Game {
 
     public Videogame(int idInput, String titleInput, int yearInput, double priceInput, String platformInput, double playtimeInput, Genre genreInput) {
         super(idInput, titleInput, yearInput, priceInput);
+        // eccezioni
+
+        if (platformInput == null || platformInput.isBlank()) {
+            throw new IllegalArgumentException("Platform input is not optional");
+        }
+        if (playtimeInput <= 0) {
+            throw new IllegalArgumentException("Game cannot last less then 1 minute");
+        }
+        if (genreInput == null) {
+            throw new IllegalArgumentException("You must enter a genre");
+        }
+
+
         this.platform = platformInput;
         this.playtime = playtimeInput;
         this.genre = genreInput;
@@ -37,7 +50,7 @@ public class Videogame extends Game {
     public String toString() {
         return "Videogame{" +
                 super.toString() +
-                "platform='" + platform + '\'' +
+                ", platform='" + platform + '\'' +
                 ", playtime=" + playtime +
                 ", genre=" + genre +
                 '}';
