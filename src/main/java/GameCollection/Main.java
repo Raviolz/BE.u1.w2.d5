@@ -79,5 +79,11 @@ public class Main {
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
         }
+
+
+        // test per method 3
+
+        System.out.println(collectionTest.filterByPriceLessThan(60.23));
+        
     }
 }

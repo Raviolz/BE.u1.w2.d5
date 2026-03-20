@@ -30,13 +30,19 @@ public class GameCollection {
     }
 
 
-    public Game findGameById(int id) {
+    public Game findGameById(int idInput) {
         return games.stream()
-                .filter(g -> g.getId() == id)
+                .filter(g -> g.getId() == idInput)
                 .findFirst()  // anche se solo 1 se no non esce dallo stream
                 .orElseThrow(() -> new IllegalArgumentException("Game not found")); // eccezione con stream
     }
 
+
+    public List<Game> filterByPriceLessThan(double priceInput) {
+        return games.stream()
+                .filter(g -> g.getPrice() < priceInput)
+                .toList();
+    }
 
     @Override
     public String toString() {
