@@ -64,9 +64,20 @@ public class Main {
         try {
             collectionTest.addGame(new Videogame(100, "Gioco Test", 2008, 30, "PC", 120.50, Genre.ACTION));
         } catch (IllegalArgumentException e) {
-            System.out.println("Errore: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
 
         System.out.println(collectionTest);
+
+
+        // test per method 2
+
+        System.out.println(collectionTest.findGameById(3));
+
+        try {
+            System.out.println(collectionTest.findGameById(32));
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }

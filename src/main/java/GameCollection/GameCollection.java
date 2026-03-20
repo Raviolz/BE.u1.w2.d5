@@ -29,6 +29,15 @@ public class GameCollection {
         games.add(newGame);
     }
 
+
+    public Game findGameById(int id) {
+        return games.stream()
+                .filter(g -> g.getId() == id)
+                .findFirst()  // anche se solo 1 se no non esce dallo stream
+                .orElseThrow(() -> new IllegalArgumentException("Game not found")); // eccezione con stream
+    }
+
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("Game Collection:\n");
