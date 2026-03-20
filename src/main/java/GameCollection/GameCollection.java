@@ -44,6 +44,16 @@ public class GameCollection {
                 .toList();
     }
 
+
+    public List<Boardgame> filterByPlayers(int playersInput) {
+        return games.stream()
+                .filter(g -> g instanceof Boardgame) // lista di Boardgames ma per java ancora Game quindi map con cast
+                .map(g -> (Boardgame) g)
+                .filter(b -> b.getPlayers() == playersInput)
+                .toList();
+    }
+
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("Game Collection:\n");

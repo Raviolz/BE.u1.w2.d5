@@ -60,6 +60,9 @@ public class Main {
         GameCollection collectionTest = new GameCollection();
         collectionTest.addGame(v2);
         collectionTest.addGame(v3);
+        collectionTest.addGame(b3);
+        collectionTest.addGame(b4);
+        collectionTest.addGame(b10);
         collectionTest.addGame(new Videogame(100, "Gioco Test", 2008, 30, "PC", 120.50, Genre.ACTION));
         try {
             collectionTest.addGame(new Videogame(100, "Gioco Test", 2008, 30, "PC", 120.50, Genre.ACTION));
@@ -84,6 +87,10 @@ public class Main {
         // test per method 3
 
         System.out.println(collectionTest.filterByPriceLessThan(60.23));
-        
+
+
+        // per method 4
+
+        System.out.println(collectionTest.filterByPlayers(5));
     }
 }
