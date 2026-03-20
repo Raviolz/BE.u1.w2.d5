@@ -26,11 +26,11 @@ public abstract class Game {
 
         if (yearInput <= 1960) {
             throw new IllegalArgumentException("Too old for us to keep, we're not a flea market");
-        } else if (yearInput >= 2026) {
+        } else if (yearInput > 2026) {
             throw new IllegalArgumentException("Come back when the game has been published!");
         }
 
-        if (priceInput < 0) {
+        if (priceInput <= 0) {
             throw new IllegalArgumentException("Are you giving it out for free?");
         }
 
